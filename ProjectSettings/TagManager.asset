@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Obsticle
+  - Obstacle
   layers:
   - Default
   - TransparentFX
