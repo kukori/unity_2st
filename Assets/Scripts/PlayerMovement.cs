@@ -8,24 +8,21 @@ public class PlayerMovement : MonoBehaviour
 
     public float sidewaysForce = 500f;
 
-    // Start is called before the first frame update
-    // void Start()
-    // {
-    //     Debug.Log("fasz");
-    // }
-
     // Update is called once per frame
     void FixedUpdate()
     {
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
-        if (Input.GetKey("d"))
-        {
+        if (Input.GetKey("d")) {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        if (Input.GetKey("a"))
-        {
+
+        if (Input.GetKey("a")) {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        }
+
+        if (rb.position.y < -1f) {
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 }
